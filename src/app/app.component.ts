@@ -12,8 +12,6 @@ export class AppComponent {
   output: string = '';
 
   evaluate() {
-    console.log(this.input);
-
     this.setOutput();
   }
 
@@ -33,9 +31,7 @@ export class AppComponent {
       this.input = this.input.substring(0, this.input.length - 1);
       try {
         this.setOutput();
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
       return;
     }
     if (literal === 'x') {
@@ -49,12 +45,9 @@ export class AppComponent {
 
   setOutput() {
     let exp = this.input.split('x').join('*');
-    console.log(exp);
 
     try {
       this.output = eval(exp);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   }
 }
